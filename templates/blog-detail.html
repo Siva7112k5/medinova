@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Blog Detail Start -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <div class="mb-5">
+                <img class="img-fluid w-100 rounded mb-5" src="{{ url_for('static', filename='img/blog-2.jpg') }}" alt="">
+                <h1 class="mb-4">10 Essential Tips for Maintaining a Healthy Heart</h1>
+                <p class="mb-4">Heart disease remains one of the leading causes of death worldwide, but many cases are preventable through lifestyle changes. Understanding how to care for your cardiovascular health is crucial for a long and active life.</p>
+                
+                <h3 class="mb-3">1. Eat a Heart-Healthy Diet</h3>
+                <p>Focus on consuming plenty of fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit saturated fats, trans fats, sodium, and added sugars. The Mediterranean diet is particularly beneficial for heart health.</p>
+                
+                <h3 class="mb-3">2. Stay Physically Active</h3>
+                <p>Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous activity each week. Regular exercise helps control weight, reduce blood pressure, and improve cholesterol levels.</p>
+                
+                <h3 class="mb-3">3. Maintain a Healthy Weight</h3>
+                <p>Being overweight or obese increases your risk of heart disease. Even modest weight loss can improve blood pressure, cholesterol levels, and blood sugar control.</p>
+                
+                <h3 class="mb-3">4. Don't Smoke or Use Tobacco</h3>
+                <p>Smoking is one of the most significant risk factors for heart disease. If you don't smoke, don't start. If you do smoke, quitting will reduce your risk dramatically.</p>
+                
+                <h3 class="mb-3">5. Manage Stress</h3>
+                <p>Chronic stress may contribute to heart disease. Find healthy ways to manage stress, such as meditation, exercise, or talking with a professional.</p>
+                
+                <h3 class="mb-3">6. Get Quality Sleep</h3>
+                <p>Most adults need 7-9 hours of sleep per night. Poor sleep quality is associated with higher risks of cardiovascular disease.</p>
+                
+                <div class="d-flex justify-content-between bg-light rounded p-4 mt-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="40" height="40" alt="">
+                        <span>Dr. Sarah Johnson</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</span>
+                        <span class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</span>
+                    </div>
+                </div>
+                
+                <div class="mb-5">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">3 Comments</h4>
+                    <div class="d-flex mb-4">
+                        <img src="{{ url_for('static', filename='img/user.jpg') }}" class="img-fluid rounded-circle" style="width: 45px; height: 45px;">
+                        <div class="ps-3">
+                            <h6><a href="#">John Doe</a> <small><i>01 Jan 2024</i></small></h6>
+                            <p>Very informative article! Thank you for sharing these important tips.</p>
+                            <button class="btn btn-sm btn-light">Reply</button>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <img src="{{ url_for('static', filename='img/user.jpg') }}" class="img-fluid rounded-circle" style="width: 45px; height: 45px;">
+                        <div class="ps-3">
+                            <h6><a href="#">Jane Smith</a> <small><i>02 Jan 2024</i></small></h6>
+                            <p>Great advice! I've started exercising regularly and already feel better.</p>
+                            <button class="btn btn-sm btn-light">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded p-5">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-white mb-4">Leave a comment</h4>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control bg-white border-0" placeholder="Your Name" style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Leave Your Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="mb-5">
+                <div class="input-group">
+                    <input type="text" class="form-control p-3" placeholder="Search blog...">
+                    <button class="btn btn-primary px-3"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Categories</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="h5 bg-light rounded py-2 px-3 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Heart Health</a>
+                    <a class="h5 bg-light rounded py-2 px-3 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Mental Wellness</a>
+                    <a class="h5 bg-light rounded py-2 px-3 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Nutrition</a>
+                    <a class="h5 bg-light rounded py-2 px-3 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Fitness</a>
+                    <a class="h5 bg-light rounded py-2 px-3 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Senior Care</a>
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Recent Posts</h4>
+                <div class="d-flex rounded overflow-hidden mb-3">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/blog-1.jpg') }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                    <a href="#" class="h5 d-flex align-items-center bg-light px-3 mb-0">10 Tips for a Healthy Heart</a>
+                </div>
+                <div class="d-flex rounded overflow-hidden mb-3">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/blog-2.jpg') }}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                    <a href="#" class="h5 d-flex align-items-center bg-light px-3 mb-0">Understanding Mental Health</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog Detail End -->
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Search Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Doctor</h5>
+            <h1 class="display-4 mb-4">Find A Healthcare Professionals</h1>
+            <h5 class="fw-normal">Search for doctors by name, specialty, or department to find the right healthcare professional for your needs.</h5>
+        </div>
+        <div class="mx-auto" style="width: 100%; max-width: 600px;">
+            <form method="POST" action="{{ url_for('search') }}">
+                <div class="input-group">
+                    <select name="department" class="form-select border-primary w-25" style="height: 60px;">
+                        <option value="Department" {% if selected_dept == 'Department' %}selected{% endif %}>Department</option>
+                        <option value="Cardiology" {% if selected_dept == 'Cardiology' %}selected{% endif %}>Cardiology</option>
+                        <option value="Neurology" {% if selected_dept == 'Neurology' %}selected{% endif %}>Neurology</option>
+                        <option value="Pediatrics" {% if selected_dept == 'Pediatrics' %}selected{% endif %}>Pediatrics</option>
+                        <option value="Orthopedic" {% if selected_dept == 'Orthopedic' %}selected{% endif %}>Orthopedic</option>
+                        <option value="Dermatology" {% if selected_dept == 'Dermatology' %}selected{% endif %}>Dermatology</option>
+                        <option value="Psychiatry" {% if selected_dept == 'Psychiatry' %}selected{% endif %}>Psychiatry</option>
+                    </select>
+                    <input type="text" name="keyword" class="form-control border-primary w-50" placeholder="Doctor Name or Specialty" value="{{ keyword }}">
+                    <button class="btn btn-dark border-0 w-25" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Search End -->
+
+<!-- Search Result Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5">
+            {% if doctors %}
+                {% for doctor in doctors %}
+                <div class="col-lg-6 team-item">
+                    <div class="row g-0 bg-light rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100 w-100" src="{{ url_for('static', filename='img/' + doctor.image) }}" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h3>{{ doctor.name }}</h3>
+                                <h6 class="fw-normal fst-italic text-primary mb-4">{{ doctor.specialty }}</h6>
+                                <p class="m-0">Experienced professional dedicated to providing the best healthcare services with compassion and expertise.</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a href="{{ url_for('appointment') }}" class="btn btn-primary rounded-pill px-4 me-3">Book Appointment</a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center py-5">
+                    <h3>No doctors found matching your search criteria.</h3>
+                    <p>Please try different keywords or department selection.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- Search Result End -->
+{% endblock %}

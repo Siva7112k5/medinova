@@ -2,51 +2,319 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MEDINOVA - Hospital Website</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <title>MEDINOVA - Hospital Management System</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <meta content="Healthcare, Hospital, Medical Services, Doctors" name="keywords">
+    <meta content="Medinova - Best Healthcare Solution Provider with advanced medical facilities and expert doctors" name="description">
 
     <!-- Favicon -->
     <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-    <!-- Template Stylesheet -->
+    <!-- Tempus Dominus CSS (Date/Time Picker) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css">
+
+    <!-- Custom CSS -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    <style>
+        /* Additional Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-brand h1 {
+                font-size: 1.3rem;
+            }
+            
+            .hero-header {
+                min-height: 450px;
+                background-position: center;
+            }
+            
+            .display-1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .display-4 {
+                font-size: 1.5rem;
+            }
+            
+            .btn-lg {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .service-item {
+                margin-bottom: 30px;
+                height: auto;
+                padding: 30px 20px;
+            }
+            
+            .service-item .service-icon {
+                width: 100px;
+                height: 70px;
+            }
+            
+            .service-item .service-icon i {
+                font-size: 2rem;
+            }
+            
+            .team-item .row {
+                flex-direction: column;
+            }
+            
+            .team-item img {
+                height: 250px;
+                width: 100%;
+                object-fit: cover;
+            }
+            
+            .price-carousel {
+                padding: 0 15px 45px 15px !important;
+            }
+            
+            .contact-form-overlay {
+                margin-top: 0 !important;
+                position: relative !important;
+            }
+            
+            .footer .row > div {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .footer .d-flex {
+                justify-content: center;
+            }
+            
+            .alert {
+                left: 15px;
+                right: 15px;
+                top: 70px;
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .display-1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-header .btn {
+                display: inline-block;
+                width: auto;
+                margin: 5px;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .dropdown-menu {
+                text-align: center;
+            }
+            
+            .table-responsive {
+                font-size: 0.8rem;
+            }
+            
+            .btn-sm {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .modal-footer .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+        
+        /* Animation for flash messages */
+        .alert {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 320px;
+            animation: slideInRight 0.5s ease-out;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: none;
+            border-radius: 8px;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        .alert-hide {
+            animation: slideOutRight 0.5s ease-out forwards;
+        }
+        
+        /* Navbar active link styling */
+        .navbar-nav .nav-link.active {
+            color: var(--primary) !important;
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading spinner */
+        .spinner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .spinner-overlay.show {
+            display: flex;
+        }
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea6bc;
+        }
+        
+        /* Card hover effects */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Button loading state */
+        .btn-loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        /* Form validation styles */
+        .form-control.is-invalid {
+            border-color: #dc3545;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linecap='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+        }
+        
+        .invalid-feedback {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="spinnerOverlay" class="spinner-overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <!-- Topbar Start -->
-    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
+    <div class="container-fluid bg-light py-2 border-bottom d-none d-lg-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-decoration-none text-body pe-3" href="#"><i class="bi bi-telephone me-2"></i>+012 345 6789</a>
-                        <span class="text-body">|</span>
-                        <a class="text-decoration-none text-body px-3" href="#"><i class="bi bi-envelope me-2"></i>info@medinova.com</a>
+                        <a class="text-decoration-none text-dark pe-3" href="tel:+0123456789">
+                            <i class="bi bi-telephone me-2 text-primary"></i>+012 345 6789
+                        </a>
+                        <span class="text-muted">|</span>
+                        <a class="text-decoration-none text-dark px-3" href="mailto:info@medinova.com">
+                            <i class="bi bi-envelope me-2 text-primary"></i>info@medinova.com
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-body px-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="text-body px-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="text-body px-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="text-body px-2" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="text-body ps-2" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="text-dark px-2" href="#" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-dark px-2" href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-dark px-2" href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-dark px-2" href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-dark ps-2" href="#" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -59,45 +327,86 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="{{ url_for('index') }}" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+                    <h1 class="m-0 text-uppercase text-primary">
+                        <i class="fa fa-clinic-medical me-2"></i>Medinova
+                    </h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{{ url_for('index') }}" class="nav-item nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a>
-                        <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
-                        <a href="{{ url_for('service') }}" class="nav-item nav-link {% if request.endpoint == 'service' %}active{% endif %}">Service</a>
-                        <a href="{{ url_for('pricing') }}" class="nav-item nav-link {% if request.endpoint == 'pricing' %}active{% endif %}">Pricing</a>
+                        <a href="{{ url_for('index') }}" class="nav-item nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                        <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                            <i class="fas fa-info-circle me-1"></i>About
+                        </a>
+                        <a href="{{ url_for('service') }}" class="nav-item nav-link {% if request.endpoint == 'service' %}active{% endif %}">
+                            <i class="fas fa-stethoscope me-1"></i>Service
+                        </a>
+                        <a href="{{ url_for('pricing') }}" class="nav-item nav-link {% if request.endpoint == 'pricing' %}active{% endif %}">
+                            <i class="fas fa-tag me-1"></i>Pricing
+                        </a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="fas fa-file-alt me-1"></i>Pages
+                            </a>
                             <div class="dropdown-menu m-0">
-                                <a href="{{ url_for('blog') }}" class="dropdown-item">Blog Grid</a>
-                                <a href="{{ url_for('blog_detail') }}" class="dropdown-item">Blog Detail</a>
-                                <a href="{{ url_for('team') }}" class="dropdown-item">The Team</a>
-                                <a href="{{ url_for('testimonial') }}" class="dropdown-item">Testimonial</a>
-                                <a href="{{ url_for('appointment') }}" class="dropdown-item">Appointment</a>
-                                <a href="{{ url_for('search') }}" class="dropdown-item">Search</a>
+                                <a href="{{ url_for('blog') }}" class="dropdown-item">
+                                    <i class="fas fa-blog me-2"></i>Blog Grid
+                                </a>
+                                <a href="{{ url_for('blog_detail') }}" class="dropdown-item">
+                                    <i class="fas fa-newspaper me-2"></i>Blog Detail
+                                </a>
+                                <a href="{{ url_for('team') }}" class="dropdown-item">
+                                    <i class="fas fa-users me-2"></i>The Team
+                                </a>
+                                <a href="{{ url_for('testimonial') }}" class="dropdown-item">
+                                    <i class="fas fa-comments me-2"></i>Testimonial
+                                </a>
+                                <a href="{{ url_for('appointment') }}" class="dropdown-item">
+                                    <i class="fas fa-calendar-check me-2"></i>Appointment
+                                </a>
+                                <a href="{{ url_for('search') }}" class="dropdown-item">
+                                    <i class="fas fa-search me-2"></i>Search Doctors
+                                </a>
                             </div>
                         </div>
-                        <a href="{{ url_for('contact') }}" class="nav-item nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                        <a href="{{ url_for('contact') }}" class="nav-item nav-link {% if request.endpoint == 'contact' %}active{% endif %}">
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
                         
                         {% if current_user %}
                             {% if current_user.is_admin %}
-                                <a href="{{ url_for('admin_dashboard') }}" class="nav-item nav-link">Admin Panel</a>
+                                <a href="{{ url_for('admin_dashboard') }}" class="nav-item nav-link">
+                                    <i class="fas fa-tachometer-alt me-1"></i>Admin Panel
+                                </a>
                             {% endif %}
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                    <i class="fas fa-user me-1"></i>{{ current_user.name }}
+                                    <i class="fas fa-user-circle me-1"></i>{{ current_user.name }}
                                 </a>
                                 <div class="dropdown-menu m-0">
-                                    <a href="{{ url_for('logout') }}" class="dropdown-item">Logout</a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-user me-2"></i>My Profile
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-calendar-alt me-2"></i>My Appointments
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ url_for('logout') }}" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                    </a>
                                 </div>
                             </div>
                         {% else %}
-                            <a href="{{ url_for('login') }}" class="nav-item nav-link">Login</a>
-                            <a href="{{ url_for('register') }}" class="nav-item nav-link">Register</a>
+                            <a href="{{ url_for('login') }}" class="nav-item nav-link">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </a>
+                            <a href="{{ url_for('register') }}" class="nav-item nav-link">
+                                <i class="fas fa-user-plus me-1"></i>Register
+                            </a>
                         {% endif %}
                     </div>
                 </div>
@@ -107,69 +416,144 @@
     <!-- Navbar End -->
 
     <!-- Flash Messages -->
-    <div class="container mt-3">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category if category != 'message' else 'info' }} alert-dismissible fade show" role="alert">
-                        {{ message }}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category if category != 'message' else 'info' }} alert-dismissible fade show shadow-lg" role="alert">
+                    <div class="d-flex align-items-center">
+                        {% if category == 'success' %}
+                            <i class="fas fa-check-circle fa-2x me-3 text-success"></i>
+                        {% elif category == 'danger' %}
+                            <i class="fas fa-exclamation-circle fa-2x me-3 text-danger"></i>
+                        {% elif category == 'warning' %}
+                            <i class="fas fa-exclamation-triangle fa-2x me-3 text-warning"></i>
+                        {% else %}
+                            <i class="fas fa-info-circle fa-2x me-3 text-info"></i>
+                        {% endif %}
+                        <div class="flex-grow-1">
+                            <strong>
+                                {% if category == 'success' %}Success!
+                                {% elif category == 'danger' %}Error!
+                                {% elif category == 'warning' %}Warning!
+                                {% else %}Notice!
+                                {% endif %}
+                            </strong>
+                            <br>{{ message }}
+                        </div>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
     <!-- Main Content -->
     {% block content %}{% endblock %}
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 py-5">
-        <div class="container py-5">
+        <div class="container py-4">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Get In Touch</h4>
-                    <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@medinova.com</p>
-                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Get In Touch
+                    </h4>
+                    <p class="mb-4">Your trusted healthcare partner providing quality medical services with compassion and excellence since 2010.</p>
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt text-primary me-3"></i>123 Healthcare Avenue, Medical District, New York, NY 10001, USA
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope text-primary me-3"></i>info@medinova.com
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890
+                    </p>
+                    <p class="mb-0">
+                        <i class="fa fa-clock text-primary me-3"></i>24/7 Emergency Services Available
+                    </p>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Quick Links
+                    </h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="{{ url_for('index') }}"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="{{ url_for('about') }}"><i class="fa fa-angle-right me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="{{ url_for('service') }}"><i class="fa fa-angle-right me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="{{ url_for('team') }}"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
-                        <a class="text-light mb-2" href="{{ url_for('blog') }}"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-                        <a class="text-light" href="{{ url_for('contact') }}"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        <a class="text-light mb-2" href="{{ url_for('index') }}">
+                            <i class="fa fa-angle-right me-2"></i>Home
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('about') }}">
+                            <i class="fa fa-angle-right me-2"></i>About Us
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Our Services
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('team') }}">
+                            <i class="fa fa-angle-right me-2"></i>Meet The Team
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('blog') }}">
+                            <i class="fa fa-angle-right me-2"></i>Latest Blog
+                        </a>
+                        <a class="text-light" href="{{ url_for('contact') }}">
+                            <i class="fa fa-angle-right me-2"></i>Contact Us
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Our Services
+                    </h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="{{ url_for('index') }}"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="{{ url_for('about') }}"><i class="fa fa-angle-right me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="{{ url_for('service') }}"><i class="fa fa-angle-right me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="{{ url_for('team') }}"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
-                        <a class="text-light mb-2" href="{{ url_for('blog') }}"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-                        <a class="text-light" href="{{ url_for('contact') }}"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Emergency Care
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Operation & Surgery
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Outdoor Checkup
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Ambulance Service
+                        </a>
+                        <a class="text-light mb-2" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Medicine & Pharmacy
+                        </a>
+                        <a class="text-light" href="{{ url_for('service') }}">
+                            <i class="fa fa-angle-right me-2"></i>Blood Testing
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Newsletter</h4>
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control p-3 border-0" placeholder="Your Email Address">
-                            <button class="btn btn-primary">Sign Up</button>
-                        </div>
-                    </form>
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Opening Hours
+                    </h4>
+                    <div class="mb-4">
+                        <p class="mb-2 d-flex justify-content-between">
+                            <span>Monday - Friday:</span>
+                            <span>8:00 AM - 8:00 PM</span>
+                        </p>
+                        <p class="mb-2 d-flex justify-content-between">
+                            <span>Saturday:</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </p>
+                        <p class="mb-0 d-flex justify-content-between">
+                            <span>Sunday:</span>
+                            <span>Emergency Only</span>
+                        </p>
+                    </div>
                     <h6 class="text-primary text-uppercase mt-4 mb-3">Follow Us</h6>
                     <div class="d-flex">
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -177,33 +561,180 @@
     </div>
     <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-3">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Medinova</a>. All Rights Reserved.</p>
+                    <p class="mb-md-0">
+                        &copy; <a class="text-primary" href="{{ url_for('index') }}">Medinova</a>. All Rights Reserved. 
+                        <span id="currentYear"></span>
+                    </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Designed by <a class="text-primary" href="https://htmlcodex.com" target="_blank">HTML Codex</a></p>
+                    <p class="mb-0">
+                        Designed with <i class="fa fa-heart text-danger"></i> by 
+                        <a class="text-primary" href="https://htmlcodex.com" target="_blank">HTML Codex</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Footer End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top Button -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-
-    <!-- Template Javascript -->
+    <!-- Required JavaScript Libraries -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery Easing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    
+    <!-- Waypoints -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    
+    <!-- Owl Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone.min.js"></script>
+    
+    <!-- Tempus Dominus -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+    <!-- Custom JavaScript -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut('slow', function() {
+                $(this).remove();
+            });
+        }, 5000);
+        
+        // Back to top button functionality
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('#backToTop').fadeIn('slow');
+            } else {
+                $('#backToTop').fadeOut('slow');
+            }
+        });
+        
+        $('#backToTop').click(function() {
+            $('html, body').animate({scrollTop: 0}, 1000, 'easeInOutExpo');
+            return false;
+        });
+        
+        // Display current year in footer
+        document.getElementById('currentYear').innerHTML = new Date().getFullYear();
+        
+        // Add loading spinner on form submit
+        $('form').on('submit', function(e) {
+            var $form = $(this);
+            var $submitBtn = $form.find('button[type="submit"]');
+            
+            if ($submitBtn.length && !$submitBtn.hasClass('no-spinner')) {
+                $submitBtn.html('<span class="spinner-border spinner-border-sm me-2"></span>Processing...');
+                $submitBtn.prop('disabled', true);
+                $submitBtn.addClass('btn-loading');
+            }
+        });
+        
+        // Remove loading state if form validation fails
+        $('form input, form select, form textarea').on('invalid', function() {
+            var $form = $(this).closest('form');
+            var $submitBtn = $form.find('button[type="submit"]');
+            $submitBtn.html($submitBtn.data('original-text') || $submitBtn.text());
+            $submitBtn.prop('disabled', false);
+            $submitBtn.removeClass('btn-loading');
+        });
+        
+        // Store original button text
+        $('form button[type="submit"]').each(function() {
+            $(this).data('original-text', $(this).html());
+        });
+        
+        // Smooth scroll for anchor links
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+        
+        // Tooltip initialization
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Popover initialization
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        popoverTriggerList.map(function(popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl);
+        });
+        
+        // Mobile menu close after click
+        $('.navbar-nav .nav-link').on('click', function() {
+            if ($(window).width() < 992) {
+                $('#navbarCollapse').collapse('hide');
+            }
+        });
+        
+        // Prevent double form submission
+        $('form').on('submit', function() {
+            if ($(this).data('submitted')) {
+                return false;
+            }
+            $(this).data('submitted', true);
+            return true;
+        });
+        
+        // Add fade-in animation to elements
+        function checkFadeIn() {
+            $('.fade-in-up').each(function() {
+                var elementTop = $(this).offset().top;
+                var viewportBottom = $(window).scrollTop() + $(window).height();
+                
+                if (elementTop < viewportBottom - 50) {
+                    $(this).addClass('animated');
+                }
+            });
+        }
+        
+        $(window).on('scroll', checkFadeIn);
+        checkFadeIn();
+        
+        // Handle responsive tables
+        $('.table-responsive').each(function() {
+            if ($(this).find('table').width() > $(this).width()) {
+                $(this).css('overflow-x', 'auto');
+            }
+        });
+        
+        // Add touch feedback for mobile
+        if ('ontouchstart' in window) {
+            $('.btn, .nav-link, .dropdown-item').on('touchstart', function() {
+                $(this).addClass('touch-active');
+                setTimeout(() => {
+                    $(this).removeClass('touch-active');
+                }, 150);
+            });
+        }
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>

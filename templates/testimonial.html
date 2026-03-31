@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Testimonial Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
+            <h1 class="display-4">Patients Say About Our Services</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="row g-5">
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                            </div>
+                            <p class="fs-5 fw-normal">"Excellent care and professional staff! The doctors here are very knowledgeable and caring. I received the best treatment for my condition."</p>
+                            <hr class="w-25 mx-auto">
+                            <h3>John Anderson</h3>
+                            <h6 class="fw-normal text-primary mb-3">Business Executive</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-2.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                            </div>
+                            <p class="fs-5 fw-normal">"The facilities are top-notch and the staff is very friendly. I'm grateful for the excellent care my family received here."</p>
+                            <hr class="w-25 mx-auto">
+                            <h3>Sarah Williams</h3>
+                            <h6 class="fw-normal text-primary mb-3">Teacher</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-3.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                            </div>
+                            <p class="fs-5 fw-normal">"Amazing hospital with modern equipment and caring doctors. The emergency service is quick and efficient."</p>
+                            <hr class="w-25 mx-auto">
+                            <h3>Michael Brown</h3>
+                            <h6 class="fw-normal text-primary mb-3">Engineer</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                            </div>
+                            <p class="fs-5 fw-normal">"I highly recommend Medinova. The doctors take time to explain everything and the staff is very supportive."</p>
+                            <hr class="w-25 mx-auto">
+                            <h3>Emily Davis</h3>
+                            <h6 class="fw-normal text-primary mb-3">Homemaker</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+{% endblock %}

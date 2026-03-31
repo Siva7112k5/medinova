@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = 'medinova-secret-key-2024'
@@ -63,6 +65,9 @@ def inject_user():
         user = User.query.get(session['user_id'])
     return dict(current_user=user)
 
+@app.context_processor
+def inject_now():
+    return {'now': datetime.utcnow()}
 # ==================== AUTH ROUTES ====================
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -118,6 +123,7 @@ def logout():
     session.clear()
     flash('Logged out successfully', 'success')
     return redirect(url_for('index'))
+
 
 # ==================== MAIN ROUTES ====================
 @app.route('/')

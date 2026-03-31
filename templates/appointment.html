@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Appointment Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="mb-4">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Appointment</h5>
+                    <h1 class="display-4">Make An Appointment For Your Family</h1>
+                </div>
+                <p class="mb-5">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                <div class="bg-light rounded p-4">
+                    <h4 class="mb-3">Why Choose Us?</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Experienced Doctors</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Modern Equipment</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Affordable Prices</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light text-center rounded p-5">
+                    <h1 class="mb-4">Book An Appointment</h1>
+                    <form action="{{ url_for('appointment') }}" method="POST">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <select name="department" class="form-select bg-white border-0" style="height: 55px;" required>
+                                    <option selected>Choose Department</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="Psychiatry">Psychiatry</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <select name="doctor" class="form-select bg-white border-0" style="height: 55px;" required>
+                                    <option selected>Select Doctor</option>
+                                    <option value="Dr. Sarah Johnson">Dr. Sarah Johnson - Cardiologist</option>
+                                    <option value="Dr. Michael Chen">Dr. Michael Chen - Neurologist</option>
+                                    <option value="Dr. Emily Davis">Dr. Emily Davis - Pediatrician</option>
+                                    <option value="Dr. James Wilson">Dr. James Wilson - Orthopedic</option>
+                                    <option value="Dr. Maria Garcia">Dr. Maria Garcia - Dermatologist</option>
+                                    <option value="Dr. Robert Brown">Dr. Robert Brown - Psychiatrist</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="text" name="name" class="form-control bg-white border-0" placeholder="Your Name" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" name="email" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="date" name="date" class="form-control bg-white border-0" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="time" name="time" class="form-control bg-white border-0" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Make An Appointment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Appointment End -->
+{% endblock %}
