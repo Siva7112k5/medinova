@@ -4,60 +4,207 @@
 <!-- Testimonial Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
-            <h1 class="display-4">Patients Say About Our Services</h1>
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Patient Stories</h5>
+            <h1 class="display-4">What Our Patients Say About Us</h1>
+            <p class="text-muted mt-3">Real reviews from patients across Tamil Nadu</p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-10">
                 <div class="row g-5">
                     <div class="col-md-6">
-                        <div class="testimonial-item text-center bg-light rounded p-5">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
                             </div>
-                            <p class="fs-5 fw-normal">"Excellent care and professional staff! The doctors here are very knowledgeable and caring. I received the best treatment for my condition."</p>
+                            <p class="fs-5 fw-normal">"Excellent treatment by Dr. Siva Kumar! He performed my father's bypass surgery at the Chennai branch. Very professional and caring staff. Highly recommend Medinova for heart care."</p>
                             <hr class="w-25 mx-auto">
-                            <h3>John Anderson</h3>
-                            <h6 class="fw-normal text-primary mb-3">Business Executive</h6>
+                            <h5 class="mb-1">K. Ramesh</h5>
+                            <h6 class="fw-normal text-primary mb-2">Businessman, Chennai</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
-                        <div class="testimonial-item text-center bg-light rounded p-5">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-2.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-2.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
                             </div>
-                            <p class="fs-5 fw-normal">"The facilities are top-notch and the staff is very friendly. I'm grateful for the excellent care my family received here."</p>
+                            <p class="fs-5 fw-normal">"Dr. Nandhu Raj at the Coimbatore branch gave me a new lease on life. His treatment for my chronic migraine was life-changing. The staff is very supportive and caring."</p>
                             <hr class="w-25 mx-auto">
-                            <h3>Sarah Williams</h3>
-                            <h6 class="fw-normal text-primary mb-3">Teacher</h6>
+                            <h5 class="mb-1">R. Priyadharshini</h5>
+                            <h6 class="fw-normal text-primary mb-2">Software Engineer, Coimbatore</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
-                        <div class="testimonial-item text-center bg-light rounded p-5">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-3.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-3.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
                             </div>
-                            <p class="fs-5 fw-normal">"Amazing hospital with modern equipment and caring doctors. The emergency service is quick and efficient."</p>
+                            <p class="fs-5 fw-normal">"Dr. Nizanth Ahmed is the best pediatrician in Madurai! He has been treating my children for 3 years now. Very patient and explains everything clearly. The hospital is very clean and child-friendly."</p>
                             <hr class="w-25 mx-auto">
-                            <h3>Michael Brown</h3>
-                            <h6 class="fw-normal text-primary mb-3">Engineer</h6>
+                            <h5 class="mb-1">S. Meenakshi</h5>
+                            <h6 class="fw-normal text-primary mb-2">Teacher, Madurai</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
-                        <div class="testimonial-item text-center bg-light rounded p-5">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="" style="width: 100px; height: 100px;">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-1.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
                             </div>
-                            <p class="fs-5 fw-normal">"I highly recommend Medinova. The doctors take time to explain everything and the staff is very supportive."</p>
+                            <p class="fs-5 fw-normal">"Dr. Navin Raj performed my knee replacement surgery at the Chennai T Nagar branch. I can walk without pain after 5 years! The physiotherapy team is also excellent. Very grateful to Medinova."</p>
                             <hr class="w-25 mx-auto">
-                            <h3>Emily Davis</h3>
-                            <h6 class="fw-normal text-primary mb-3">Homemaker</h6>
+                            <h5 class="mb-1">K. Balasubramanian</h5>
+                            <h6 class="fw-normal text-primary mb-2">Retired Govt Officer, Chennai</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-2.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
+                            </div>
+                            <p class="fs-5 fw-normal">"Dr. Raja Gopal at the Trichy branch completely cured my 5-year-long skin problem. His treatment is effective and affordable. The pharmacy has all genuine medicines. Very satisfied!"</p>
+                            <hr class="w-25 mx-auto">
+                            <h5 class="mb-1">M. Kavitha</h5>
+                            <h6 class="fw-normal text-primary mb-2">Homemaker, Tiruchirappalli</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="testimonial-item text-center bg-light rounded p-5 shadow-sm h-100">
+                            <div class="position-relative mb-4">
+                                <img class="img-fluid rounded-circle mx-auto border border-3 border-primary" src="{{ url_for('static', filename='img/testimonial-3.jpg') }}" alt="Patient" style="width: 100px; height: 100px; object-fit: cover;">
+                                <i class="fa fa-quote-right fa-2x text-primary position-absolute" style="bottom: 0; right: 20px;"></i>
+                            </div>
+                            <p class="fs-5 fw-normal">"Dr. Srinivasan handled my high-risk pregnancy with great care. I had a safe delivery at the Salem branch. The entire team was supportive throughout my journey. Highly recommended for expecting mothers!"</p>
+                            <hr class="w-25 mx-auto">
+                            <h5 class="mb-1">A. Deepa</h5>
+                            <h6 class="fw-normal text-primary mb-2">Bank Employee, Salem</h6>
+                            <div class="rating">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Rating Summary Section -->
+<div class="container-fluid bg-primary py-5 mt-5">
+    <div class="container">
+        <div class="row text-center text-white">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <i class="fa fa-star fa-3x mb-2"></i>
+                <h2 class="mb-0">4.9</h2>
+                <p>Average Rating (500+ reviews)</p>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <i class="fa fa-smile fa-3x mb-2"></i>
+                <h2 class="mb-0">98%</h2>
+                <p>Patient Satisfaction Rate</p>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <i class="fa fa-users fa-3x mb-2"></i>
+                <h2 class="mb-0">1,00,000+</h2>
+                <p>Happy Patients Treated</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Testimonials Section -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container text-center">
+        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Video Reviews</h5>
+        <h2 class="display-6 mb-4">Watch What Our Patients Say</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <div class="bg-dark rounded d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fa fa-play-circle fa-4x text-white"></i>
+                    </div>
+                    <p class="mt-3 mb-0 fw-bold">Patient Review - Chennai Branch</p>
+                    <small class="text-muted">K. Ramesh shares his experience</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <div class="bg-dark rounded d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fa fa-play-circle fa-4x text-white"></i>
+                    </div>
+                    <p class="mt-3 mb-0 fw-bold">Patient Review - Coimbatore Branch</p>
+                    <small class="text-muted">R. Priyadharshini shares her story</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <div class="bg-dark rounded d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fa fa-play-circle fa-4x text-white"></i>
+                    </div>
+                    <p class="mt-3 mb-0 fw-bold">Patient Review - Madurai Branch</p>
+                    <small class="text-muted">S. Meenakshi shares her journey</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Share Your Experience CTA -->
+<div class="container-fluid py-5">
+    <div class="container text-center">
+        <h3 class="mb-3">Have You Visited Medinova?</h3>
+        <p class="mb-4">Share your experience with us and help others make informed healthcare decisions</p>
+        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">
+            <i class="fa fa-pen me-2"></i>Write a Review
+        </a>
     </div>
 </div>
 <!-- Testimonial End -->

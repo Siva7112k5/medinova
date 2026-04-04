@@ -5,126 +5,235 @@
 <div class="container-fluid py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog Post</h5>
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Health Articles</h5>
             <h1 class="display-4">Our Latest Medical Blog Posts</h1>
+            <p class="text-muted mt-3">Expert health advice from Medinova's doctors across Tamil Nadu</p>
         </div>
         <div class="row g-5">
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-1.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm transition">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-1.jpg') }}" alt="Heart Health" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">10 Tips for a Healthy Heart</a>
-                        <p class="m-0">Learn about the best practices to maintain a healthy heart and prevent cardiovascular diseases.</p>
+                        <span class="badge bg-primary mb-2">Cardiology</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">10 Essential Tips for a Healthy Heart</a>
+                        <p class="m-0">Expert advice from Dr. Siva Kumar on maintaining heart health, especially for Tamil Nadu residents with our unique dietary habits.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. Sarah Johnson</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Siva Kumar</small>
+                                <small class="text-muted">Cardiologist</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>12345</small>
-                            <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>123</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>15,234</small>
+                            <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>45</small>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-2.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-2.jpg') }}" alt="Mental Health" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">Understanding Mental Health</a>
-                        <p class="m-0">Important insights about mental health awareness and how to maintain emotional well-being.</p>
+                        <span class="badge bg-primary mb-2">Neurology</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">Mental Wellness in Modern Times</a>
+                        <p class="m-0">Dr. Nandhu Raj shares insights on managing stress, anxiety, and maintaining emotional well-being in today's fast-paced world.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. Robert Brown</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Nandhu Raj</small>
+                                <small class="text-muted">Neurologist</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>9876</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>9,876</small>
                             <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>89</small>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-3.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-3.jpg') }}" alt="Child Nutrition" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">Nutrition Guide for Kids</a>
-                        <p class="m-0">Essential nutrition tips to ensure healthy growth and development in children.</p>
+                        <span class="badge bg-primary mb-2">Pediatrics</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">Complete Nutrition Guide for Kids</a>
+                        <p class="m-0">Dr. Nizanth Ahmed provides essential nutrition tips for healthy growth and development in children of all ages.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. Emily Davis</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Nizanth Ahmed</small>
+                                <small class="text-muted">Pediatrician</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>15678</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>15,678</small>
                             <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>234</small>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-2.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-2.jpg') }}" alt="Senior Exercise" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">Exercise for Seniors</a>
-                        <p class="m-0">Safe and effective exercise routines for maintaining health in older adults.</p>
+                        <span class="badge bg-primary mb-2">Orthopedics</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">Safe Exercise Routines for Seniors</a>
+                        <p class="m-0">Dr. Navin Raj shares low-impact exercises to maintain mobility, strength, and joint health in older adults.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. James Wilson</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Navin Raj</small>
+                                <small class="text-muted">Orthopedic Surgeon</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>11234</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>11,234</small>
                             <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>145</small>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-3.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-3.jpg') }}" alt="Skin Care" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">Skin Care Tips</a>
-                        <p class="m-0">Expert advice on maintaining healthy skin and treating common skin conditions.</p>
+                        <span class="badge bg-primary mb-2">Dermatology</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">Skin Care Tips for Tamil Nadu Climate</a>
+                        <p class="m-0">Dr. Raja Gopal shares expert advice on maintaining healthy skin in humid weather and treating common skin conditions.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. Maria Garcia</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Raja Gopal</small>
+                                <small class="text-muted">Dermatologist</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>13456</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>13,456</small>
                             <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>178</small>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-xl-4 col-lg-6">
-                <div class="bg-light rounded overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-1.jpg') }}" alt="">
+                <div class="bg-light rounded overflow-hidden shadow-sm">
+                    <img class="img-fluid w-100" src="{{ url_for('static', filename='img/blog-1.jpg') }}" alt="Diabetes Prevention" style="height: 220px; object-fit: cover;">
                     <div class="p-4">
-                        <a class="h3 d-block mb-3" href="{{ url_for('blog_detail') }}">Preventing Diabetes</a>
-                        <p class="m-0">Lifestyle changes and diet tips to prevent and manage diabetes effectively.</p>
+                        <span class="badge bg-primary mb-2">Endocrinology</span>
+                        <a class="h3 d-block mb-3 text-decoration-none" href="{{ url_for('blog_detail') }}">Preventing Diabetes: A Tamil Nadu Perspective</a>
+                        <p class="m-0">Lifestyle changes and dietary tips to prevent and manage diabetes, especially relevant for our local cuisine habits.</p>
                     </div>
                     <div class="d-flex justify-content-between border-top p-4">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="25" height="25" alt="">
-                            <small>Dr. Michael Chen</small>
+                            <img class="rounded-circle me-2" src="{{ url_for('static', filename='img/user.jpg') }}" width="30" height="30" alt="Doctor">
+                            <div>
+                                <small class="fw-bold d-block">Dr. Srinivasan</small>
+                                <small class="text-muted">Endocrinologist</small>
+                            </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>14567</small>
+                            <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>14,567</small>
                             <small class="ms-3"><i class="far fa-comment text-primary me-1"></i>201</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Load More Button -->
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-primary rounded-pill py-3 px-5">
+                <i class="fa fa-spinner me-2"></i>Load More Articles
+            </a>
+        </div>
     </div>
 </div>
-<!-- Blog End -->
+
+<!-- Newsletter Section -->
+<div class="container-fluid bg-primary py-5 mt-5">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-white mb-3">Subscribe to Our Health Newsletter</h2>
+                <p class="text-white mb-4">Get weekly health tips, medical updates, and expert advice from our doctors directly in your inbox.</p>
+                <form class="row g-3 justify-content-center">
+                    <div class="col-md-8">
+                        <input type="email" class="form-control form-control-lg" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-dark btn-lg px-5">
+                            <i class="fa fa-envelope me-2"></i>Subscribe Now
+                        </button>
+                    </div>
+                </form>
+                <p class="text-white-50 small mt-3">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->
+
+<!-- Featured Topics -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Explore Topics</h5>
+            <h2 class="display-6 mt-3">Popular Health Categories</h2>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-heartbeat fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Cardiology</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-brain fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Neurology</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-baby fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Pediatrics</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-bone fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Orthopedics</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-allergies fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Dermatology</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-female fa-2x text-primary mb-2"></i>
+                    <p class="mb-0 small fw-bold">Women's Health</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured Topics End -->
 {% endblock %}

@@ -4,25 +4,34 @@
 <!-- Search Start -->
 <div class="container-fluid pt-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Doctor</h5>
-            <h1 class="display-4 mb-4">Find A Healthcare Professionals</h1>
-            <h5 class="fw-normal">Search for doctors by name, specialty, or department to find the right healthcare professional for your needs.</h5>
+            <h1 class="display-4 mb-4">Find Healthcare Professionals in Tamil Nadu</h1>
+            <h5 class="fw-normal">Search for doctors by name, specialty, or department across our branches in Chennai, Coimbatore, Madurai, Trichy & Salem.</h5>
         </div>
-        <div class="mx-auto" style="width: 100%; max-width: 600px;">
+        <div class="mx-auto" style="width: 100%; max-width: 700px;">
             <form method="POST" action="{{ url_for('search') }}">
-                <div class="input-group">
-                    <select name="department" class="form-select border-primary w-25" style="height: 60px;">
-                        <option value="Department" {% if selected_dept == 'Department' %}selected{% endif %}>Department</option>
-                        <option value="Cardiology" {% if selected_dept == 'Cardiology' %}selected{% endif %}>Cardiology</option>
-                        <option value="Neurology" {% if selected_dept == 'Neurology' %}selected{% endif %}>Neurology</option>
-                        <option value="Pediatrics" {% if selected_dept == 'Pediatrics' %}selected{% endif %}>Pediatrics</option>
-                        <option value="Orthopedic" {% if selected_dept == 'Orthopedic' %}selected{% endif %}>Orthopedic</option>
-                        <option value="Dermatology" {% if selected_dept == 'Dermatology' %}selected{% endif %}>Dermatology</option>
-                        <option value="Psychiatry" {% if selected_dept == 'Psychiatry' %}selected{% endif %}>Psychiatry</option>
-                    </select>
-                    <input type="text" name="keyword" class="form-control border-primary w-50" placeholder="Doctor Name or Specialty" value="{{ keyword }}">
-                    <button class="btn btn-dark border-0 w-25" type="submit">Search</button>
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <select name="department" class="form-select border-primary" style="height: 55px;">
+                            <option value="Department" {% if selected_dept == 'Department' %}selected{% endif %}>All Departments</option>
+                            <option value="Cardiology" {% if selected_dept == 'Cardiology' %}selected{% endif %}>Cardiology - Heart Care</option>
+                            <option value="Neurology" {% if selected_dept == 'Neurology' %}selected{% endif %}>Neurology - Brain & Nerves</option>
+                            <option value="Pediatrics" {% if selected_dept == 'Pediatrics' %}selected{% endif %}>Pediatrics - Child Care</option>
+                            <option value="Orthopedic" {% if selected_dept == 'Orthopedic' %}selected{% endif %}>Orthopedic - Bone & Joint</option>
+                            <option value="Dermatology" {% if selected_dept == 'Dermatology' %}selected{% endif %}>Dermatology - Skin & Hair</option>
+                            <option value="Gynecology" {% if selected_dept == 'Gynecology' %}selected{% endif %}>Gynecology - Women's Health</option>
+                            <option value="Ophthalmology" {% if selected_dept == 'Ophthalmology' %}selected{% endif %}>Ophthalmology - Eye Care</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" name="keyword" class="form-control border-primary" placeholder="Doctor Name or Specialty" value="{{ keyword }}" style="height: 55px;">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100" type="submit" style="height: 55px;">
+                            <i class="fa fa-search me-2"></i>Search
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -33,37 +42,160 @@
 <!-- Search Result Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="row g-5">
-            {% if doctors %}
+        {% if doctors %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4 class="text-primary">Found {{ doctors|length }} doctor(s)</h4>
+                    <p class="text-muted">Showing results for your search criteria</p>
+                </div>
+            </div>
+            <div class="row g-5">
                 {% for doctor in doctors %}
                 <div class="col-lg-6 team-item">
-                    <div class="row g-0 bg-light rounded overflow-hidden">
-                        <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100 w-100" src="{{ url_for('static', filename='img/' + doctor.image) }}" style="object-fit: cover;">
+                    <div class="row g-0 bg-light rounded overflow-hidden shadow-sm h-100">
+                        <div class="col-12 col-sm-5">
+                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename='img/' + doctor.image) }}" style="object-fit: cover; min-height: 220px;">
                         </div>
-                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div class="mt-auto p-4">
-                                <h3>{{ doctor.name }}</h3>
-                                <h6 class="fw-normal fst-italic text-primary mb-4">{{ doctor.specialty }}</h6>
-                                <p class="m-0">Experienced professional dedicated to providing the best healthcare services with compassion and expertise.</p>
+                        <div class="col-12 col-sm-7 d-flex flex-column">
+                            <div class="p-4">
+                                <h3 class="mb-1">{{ doctor.name }}</h3>
+                                <h6 class="fw-normal fst-italic text-primary mb-2">{{ doctor.specialty }}</h6>
+                                <span class="badge bg-primary mb-3">{{ doctor.location }}</span>
+                                <p class="m-0 small">{{ doctor.experience }} experience | {{ doctor.qualification }}</p>
+                                <p class="mt-2 small text-muted">{{ doctor.description }}</p>
                             </div>
-                            <div class="d-flex mt-auto border-top p-4">
-                                <a href="{{ url_for('appointment') }}" class="btn btn-primary rounded-pill px-4 me-3">Book Appointment</a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <div class="d-flex border-top p-4 mt-auto">
+                                <a href="{{ url_for('appointment') }}" class="btn btn-primary rounded-pill px-4 me-3">
+                                    <i class="fa fa-calendar-check me-2"></i>Book Appointment
+                                </a>
+                                <a class="btn btn-outline-primary btn-lg-square rounded-circle me-2" href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-lg-square rounded-circle" href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-            {% else %}
-                <div class="col-12 text-center py-5">
-                    <h3>No doctors found matching your search criteria.</h3>
-                    <p>Please try different keywords or department selection.</p>
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fa fa-user-md fa-4x text-muted mb-3"></i>
+                <h3 class="mb-2">No doctors found matching your search criteria</h3>
+                <p class="text-muted mb-4">Please try different keywords or department selection</p>
+                <a href="{{ url_for('search') }}" class="btn btn-primary rounded-pill px-4">
+                    <i class="fa fa-refresh me-2"></i>Clear Search
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<!-- Search Result End -->
+
+<!-- Doctor List (Full List when no search) -->
+{% if not doctors %}
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Specialists</h5>
+            <h2 class="display-6 mt-3">All Doctors by Department</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-heartbeat me-2"></i>Cardiology</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Siva Kumar</strong>
+                        <p class="small text-muted mb-0">Chennai - Anna Nagar | 12+ years exp</p>
+                    </div>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Siva Kumar</strong>
+                        <p class="small text-muted mb-0">Chennai - T Nagar | Available Mon-Sat</p>
+                    </div>
                 </div>
-            {% endif %}
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-brain me-2"></i>Neurology</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Nandhu Raj</strong>
+                        <p class="small text-muted mb-0">Coimbatore - RS Puram | 10+ years exp</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-baby me-2"></i>Pediatrics</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Nizanth Ahmed</strong>
+                        <p class="small text-muted mb-0">Madurai - KK Nagar | 8+ years exp</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-bone me-2"></i>Orthopedics</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Navin Raj</strong>
+                        <p class="small text-muted mb-0">Chennai - T Nagar | 9+ years exp</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-allergies me-2"></i>Dermatology</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Raja Gopal</strong>
+                        <p class="small text-muted mb-0">Trichy - Srirangam | 7+ years exp</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded p-4 shadow-sm h-100">
+                    <h5 class="text-primary mb-3"><i class="fa fa-female me-2"></i>Gynecology</h5>
+                    <div class="mb-3 pb-2 border-bottom">
+                        <strong>Dr. Srinivasan</strong>
+                        <p class="small text-muted mb-0">Salem - Junction | 11+ years exp</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Why Choose Medinova -->
+<div class="container-fluid py-5">
+    <div class="container text-center">
+        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Why Choose Us</h5>
+        <h2 class="display-6 mb-4">Why Patients Trust Medinova</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-3 col-6">
+                <i class="fa fa-user-md fa-3x text-primary mb-3"></i>
+                <h6>50+ Expert Doctors</h6>
+            </div>
+            <div class="col-md-3 col-6">
+                <i class="fa fa-hospital fa-3x text-primary mb-3"></i>
+                <h6>5+ Locations in TN</h6>
+            </div>
+            <div class="col-md-3 col-6">
+                <i class="fa fa-calendar-check fa-3x text-primary mb-3"></i>
+                <h6>Online Booking</h6>
+            </div>
+            <div class="col-md-3 col-6">
+                <i class="fa fa-ambulance fa-3x text-primary mb-3"></i>
+                <h6>24/7 Emergency</h6>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 <!-- Search Result End -->
 {% endblock %}

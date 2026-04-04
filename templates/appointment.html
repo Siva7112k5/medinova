@@ -7,61 +7,105 @@
         <div class="row gx-5">
             <div class="col-lg-6 mb-5 mb-lg-0">
                 <div class="mb-4">
-                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Appointment</h5>
-                    <h1 class="display-4">Make An Appointment For Your Family</h1>
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Book Appointment</h5>
+                    <h1 class="display-4">Schedule Your Consultation Online</h1>
                 </div>
-                <p class="mb-5">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
-                <div class="bg-light rounded p-4">
-                    <h4 class="mb-3">Why Choose Us?</h4>
+                <p class="mb-4">Medinova Hospitals - Tamil Nadu's most trusted healthcare network with branches in Chennai, Coimbatore, Madurai, Tiruchirappalli, and Salem. Book your appointment online and get priority consultation with our expert doctors. Skip the queue and save valuable time.</p>
+                
+                <div class="bg-light rounded p-4 mb-4">
+                    <h4 class="mb-3 text-primary">Why Choose Medinova?</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Experienced Doctors</li>
-                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Modern Equipment</li>
-                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Affordable Prices</li>
-                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>24/7 Emergency Service</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>50+ Experienced Doctors</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Modern Equipment & Technology</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Affordable & Transparent Pricing</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>24/7 Emergency & Ambulance Service</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>NABL Certified Laboratory</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i>Cashless Insurance Facility</li>
                     </ul>
                 </div>
+                
+                <div class="bg-primary rounded p-4 text-white">
+                    <h5 class="mb-2"><i class="fa fa-ambulance me-2"></i> Emergency? Need Immediate Help?</h5>
+                    <p class="mb-2">Call our 24/7 emergency helpline:</p>
+                    <h3 class="mb-0"><i class="fa fa-phone me-2"></i> 108 / 044-1234 5678</h3>
+                </div>
             </div>
+            
             <div class="col-lg-6">
-                <div class="bg-light text-center rounded p-5">
+                <div class="bg-light text-center rounded p-5 shadow">
                     <h1 class="mb-4">Book An Appointment</h1>
                     <form action="{{ url_for('appointment') }}" method="POST">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
                                 <select name="department" class="form-select bg-white border-0" style="height: 55px;" required>
-                                    <option selected>Choose Department</option>
-                                    <option value="Cardiology">Cardiology</option>
-                                    <option value="Neurology">Neurology</option>
-                                    <option value="Pediatrics">Pediatrics</option>
-                                    <option value="Orthopedic">Orthopedic</option>
-                                    <option value="Dermatology">Dermatology</option>
-                                    <option value="Psychiatry">Psychiatry</option>
+                                    <option selected value="">Choose Department</option>
+                                    <option value="Cardiology">Cardiology - Heart Care</option>
+                                    <option value="Neurology">Neurology - Brain & Nerves</option>
+                                    <option value="Pediatrics">Pediatrics - Child Care</option>
+                                    <option value="Orthopedic">Orthopedic - Bone & Joint</option>
+                                    <option value="Dermatology">Dermatology - Skin & Hair</option>
+                                    <option value="Gynecology">Gynecology - Women's Health</option>
+                                    <option value="Ophthalmology">Ophthalmology - Eye Care</option>
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <select name="doctor" class="form-select bg-white border-0" style="height: 55px;" required>
-                                    <option selected>Select Doctor</option>
-                                    <option value="Dr. Sarah Johnson">Dr. Sarah Johnson - Cardiologist</option>
-                                    <option value="Dr. Michael Chen">Dr. Michael Chen - Neurologist</option>
-                                    <option value="Dr. Emily Davis">Dr. Emily Davis - Pediatrician</option>
-                                    <option value="Dr. James Wilson">Dr. James Wilson - Orthopedic</option>
-                                    <option value="Dr. Maria Garcia">Dr. Maria Garcia - Dermatologist</option>
-                                    <option value="Dr. Robert Brown">Dr. Robert Brown - Psychiatrist</option>
+                                    <option selected value="">Select Doctor</option>
+                                    <option value="Dr. Siva Kumar">Dr. Siva Kumar - Cardiologist (Chennai)</option>
+                                    <option value="Dr. Nandhu Raj">Dr. Nandhu Raj - Neurologist (Coimbatore)</option>
+                                    <option value="Dr. Nizanth Ahmed">Dr. Nizanth Ahmed - Pediatrician (Madurai)</option>
+                                    <option value="Dr. Navin Raj">Dr. Navin Raj - Orthopedic Surgeon (Chennai)</option>
+                                    <option value="Dr. Raja Gopal">Dr. Raja Gopal - Dermatologist (Trichy)</option>
+                                    <option value="Dr. Srinivasan">Dr. Srinivasan - Gynecologist (Salem)</option>
+                                    <option value="Dr. Saba Fathima">Dr. Saba Fathima - Ophthalmologist (Chennai)</option>
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" name="name" class="form-control bg-white border-0" placeholder="Your Name" style="height: 55px;" required>
+                                <input type="text" name="name" class="form-control bg-white border-0" placeholder="Your Full Name" style="height: 55px;" required>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" name="email" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;" required>
+                                <input type="email" name="email" class="form-control bg-white border-0" placeholder="Your Email ID" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="tel" name="phone" class="form-control bg-white border-0" placeholder="Mobile Number" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <select name="location" class="form-select bg-white border-0" style="height: 55px;" required>
+                                    <option selected value="">Select Location</option>
+                                    <option value="Chennai - Anna Nagar">Chennai - Anna Nagar</option>
+                                    <option value="Chennai - T Nagar">Chennai - T Nagar</option>
+                                    <option value="Coimbatore - RS Puram">Coimbatore - RS Puram</option>
+                                    <option value="Madurai - KK Nagar">Madurai - KK Nagar</option>
+                                    <option value="Tiruchirappalli - Srirangam">Tiruchirappalli - Srirangam</option>
+                                    <option value="Salem - Junction">Salem - Junction</option>
+                                </select>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <input type="date" name="date" class="form-control bg-white border-0" style="height: 55px;" required>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="time" name="time" class="form-control bg-white border-0" style="height: 55px;" required>
+                                <select name="time" class="form-select bg-white border-0" style="height: 55px;" required>
+                                    <option selected value="">Select Time Slot</option>
+                                    <option value="09:00 AM">09:00 AM - 10:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM - 11:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                                    <option value="12:00 PM">12:00 PM - 01:00 PM</option>
+                                    <option value="02:00 PM">02:00 PM - 03:00 PM</option>
+                                    <option value="03:00 PM">03:00 PM - 04:00 PM</option>
+                                    <option value="04:00 PM">04:00 PM - 05:00 PM</option>
+                                    <option value="05:00 PM">05:00 PM - 06:00 PM</option>
+                                </select>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Make An Appointment</button>
+                                <textarea name="message" class="form-control bg-white border-0" rows="2" placeholder="Any specific symptoms or message for the doctor (optional)" style="resize: none;"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">
+                                    <i class="fa fa-calendar-check me-2"></i>Confirm Appointment
+                                </button>
+                            </div>
+                            <div class="col-12">
+                                <p class="text-muted small mb-0">* We'll send confirmation to your email and SMS</p>
                             </div>
                         </div>
                     </form>
@@ -71,4 +115,78 @@
     </div>
 </div>
 <!-- Appointment End -->
+
+<!-- Working Hours Section -->
+<div class="container-fluid bg-primary py-5 mt-5">
+    <div class="container">
+        <div class="row text-center text-white">
+            <div class="col-md-3 mb-3 mb-md-0">
+                <i class="fa fa-clock fa-3x mb-2"></i>
+                <h5>OP Hours</h5>
+                <p class="mb-0">Mon-Sat: 9AM - 6PM</p>
+                <small>Sunday: Emergency Only</small>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <i class="fa fa-ambulance fa-3x mb-2"></i>
+                <h5>Emergency</h5>
+                <p class="mb-0">24/7 Available</p>
+                <small>Call: 108</small>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <i class="fa fa-flask fa-3x mb-2"></i>
+                <h5>Lab Services</h5>
+                <p class="mb-0">7AM - 9PM</p>
+                <small>Home Collection Available</small>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <i class="fa fa-truck fa-3x mb-2"></i>
+                <h5>Pharmacy</h5>
+                <p class="mb-0">24/7 Open</p>
+                <small>Free Delivery*</small>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Working Hours End -->
+
+<!-- Insurance Partners -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container text-center">
+        <h5 class="text-primary text-uppercase mb-3">Insurance & Tie-ups</h5>
+        <h2 class="display-6 mb-4">We Accept All Major Health Insurance Plans</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-shield-alt fa-2x text-primary"></i>
+                    <p class="mb-0 mt-2 small">Star Health</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-hospital-user fa-2x text-primary"></i>
+                    <p class="mb-0 mt-2 small">Apollo Munich</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-umbrella fa-2x text-primary"></i>
+                    <p class="mb-0 mt-2 small">ICICI Lombard</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-building fa-2x text-primary"></i>
+                    <p class="mb-0 mt-2 small">Bajaj Allianz</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="bg-white rounded p-3 shadow-sm">
+                    <i class="fa fa-hand-holding-heart fa-2x text-primary"></i>
+                    <p class="mb-0 mt-2 small">HDFC Ergo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Insurance Partners End -->
 {% endblock %}
